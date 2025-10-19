@@ -1,0 +1,756 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f9;
+}
+
+/* Navbar */
+.navbar {
+  background: #2874f0;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-btn {
+  background: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Product Section */
+.container {
+  padding: 20px;
+}
+.row {
+  display: flex;
+  gap: 20px;
+}
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 200px;
+}
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.btn {
+  background: #2874f0;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Cart Modal */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+.cart-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+.qty-btn {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  background: #2874f0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.close-btn {
+  background: red;
+}
+.buy-btn {
+  background: green;
+  margin-top: 10px;
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-weight: bold;
+  display: none;
+  z-index: 1000;
+  animation: fadeInOut 2.5s ease forwards;
+}
+
+/* Animation */
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -20px); }
+  10% { opacity: 1; transform: translate(-50%, 0); }
+  90% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -20px); }
+}
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2874f0; /* Flipkart blue */
+  padding: 12px 20px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* ---------- Cart Button ---------- */
+.cart-btn {
+  background: #ff9f00;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  background: #fb641b; /* darker orange */
+}
+
+.cart-count {
+  background: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+/* ---------- Category Dropdown ---------- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.dropbtn {
+  background: white;
+  color: #2874f0;
+  padding: 8px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.dropbtn:hover {
+  background: #f1f1f1;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  min-width: 180px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #f1f1f1;
+  color: #2874f0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ---------- Login Button ---------- */
+.btn-light.dropdown-toggle {
+  background: rgba(20, 241, 20, 0.759);
+  color: #2874f0;
+  border: none;
+  padding: 8px 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-light.dropdown-toggle:hover {
+  background: #f1f1f1;
+}
+
+.dropdown-menu {
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.dropdown-item {
+  font-size: 14px;
+  padding: 10px 15px;
+}
+
+.dropdown-item:hover {
+  background: #f1f1f1;
+  color: #2874f0;
+}
+
+
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+.product-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.discount {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  padding: 5px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  margin: 12px 0 8px;
+}
+
+.rating {
+  color: #ffa500;
+  font-size: 14px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.price .old {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Add to Cart */
+.add-to-cart {
+  background: #fb641b; /* Orange */
+  color: white;
+  width: 100%;
+}
+.add-to-cart:hover {
+  background: #d85315;
+}
+
+/* Buy Now */
+.buy-btn {
+  background: #28a745; /* Green */
+  color: white;
+  width: 100%;
+  margin-top: 12px;
+}
+.buy-btn:hover {
+  background: #1e7e34;
+}
+
+/* Close */
+.close-btn {
+  background: #dc3545; /* Red */
+  color: white;
+  width: 100%;
+  margin-top: 8px;
+}
+.close-btn:hover {
+  background: #a71d2a;
+}
+
+/* ==========================
+   CART MODAL
+========================== */
+.cart-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cart-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.cart-content h2 {
+  margin-top: 0;
+  color: #2874f0; /* Flipkart Blue */
+  text-align: center;
+}
+
+.cart-content h3 {
+  margin-top: 20px;
+  text-align: right;
+  font-size: 18px;
+  color: #333;
+}
+
+#cart-items {
+  max-height: 250px;
+  overflow-y: auto;
+  margin: 15px 0;
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===============================
+   PRODUCT LIST / STARTING ITEMS
+=============================== */
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.product-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e53935;
+}
+
+.product-card .price .old {
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+
+/* ===============================
+   CART BUTTON STYLE UPGRADE
+=============================== */
+.cart-btn {
+  background: linear-gradient(135deg, #ff9f00, #fb641b);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.cart-btn:hover {
+  background: linear-gradient(135deg, #fb641b, #d85315);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+.cart-count {
+  background: #ff0000;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 3px 7px;
+  border-radius: 50%;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.cart-btn:hover .cart-count {
+  transform: scale(1.2);
+}
+/* ===============================
+   ADD TO CART BUTTON STYLING
+=============================== */
+.add-to-cart {
+  background: linear-gradient(135deg, #2874f0, #1c54b2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.add-to-cart:hover {
+  background: linear-gradient(135deg, #1c54b2, #0d47a1);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.add-to-cart:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+/* ===============================
+   CART MODAL BUTTONS
+=============================== */
+.buy-btn {
+  background: linear-gradient(135deg, #ff9f00, #fb641b); /* orange gradient */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  margin-top: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.buy-btn:hover {
+  background: linear-gradient(135deg, #fb641b, #d84315);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.buy-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* ✅ Close Button */
+.close-btn {
+  background: #e0e0e0;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.close-btn:hover {
+  background: #d6d6d6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.close-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* ✅ exactly 6 per row */
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* ✅ Search Bar */
+.search-bar {
+  flex: 1; /* allows it to expand */
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  width: 65%;   /* 🔹 increased from 60% */
+  padding: 10px 14px; /* 🔹 slightly bigger height */
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 15px; /* 🔹 little larger text */
+}
+
+.search-bar button {
+  padding: 10px 18px; /* 🔹 bigger to match input */
+  border: none;
+  background: #ff9f00;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.search-bar button:hover {
+  background: #fb641b;
+}
+
+
+
+
+ /* Footer background */
+  footer {
+    background-color: #007bff; /* Flipkart blue */
+    color: white;
+  }
+
+  /* Footer bottom background */
+  #footer-bottom {
+    background-color: #0056b3; /* darker shade for contrast */
+    color: white;
+  }
+
+  /* Make all links white */
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* For cards inside section */
+  .card {
+    background: white;
+    color: black;
+  }
+/* support 24/7 */
+
+.feature-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  transition: transform 0.2s ease-in-out;
+  border-radius: 10px;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+
+.feature-card h6 {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.feature-card p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+
+/* Category Bar Container */
+.category-bar {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+/* Category Bar Container */
+.category-bar {
+  display: flex;
+  justify-content: center;
+  gap: 35px; /* Increased spacing between items */
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+/* Category Button */
+.category-bar button {
+  background: #fff;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px; /* Bigger text */
+  font-weight: 600;
+  color: #333;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* Category Images */
+.category-bar img {
+  width: 80px;   /* Increased size */
+  height: 80px;  /* Increased size */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px; /* More space below image */
+  border: 2px solid #e0e0e0;
+  padding: 8px;
+  background: #fafafa;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* Hover Effects */
+.category-bar button:hover {
+  transform: translateY(-5px) scale(1.05);
+  color: #2874f0; /* Flipkart Blue */
+}
+
+.category-bar button:hover img {
+  border-color: #2874f0;
+  background: #e8f0fe;
+  box-shadow: 0 6px 15px rgba(40,116,240,0.35);
+}
+
+/* Active Button */
+.category-bar button.active img {
+  border-color: #2874f0;
+  background: #e8f0fe;
+  box-shadow: 0 6px 15px rgba(40,116,240,0.35);
+}
+
+.category-bar span {
+  display: block;
+  font-size: 15px; /* Bigger labels */
+  font-weight: 600;
+  margin-top: 5px;
+}

@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipkart Clone</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- ✅ Toast Notification -->
+  <div id="toast" class="toast">Successfully product add in cart ✅</div>
+
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Flipkart Clone</a>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search products...">
+      <button type="submit">Search</button>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="nav-links">
+      <button class="cart-btn" id="cartBtn">
+        🛒 <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+
+    <!-- Category Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-list"></i> Categories ▼</button>
+      <div class="dropdown-content" id="dropdownMenu">
+        <a href="#mobiles"><i class="fa fa-mobile"></i> Mobiles</a>
+        <a href="#laptops"><i class="fa fa-laptop"></i> Laptops</a>
+        <a href="#electronics"><i class="fa fa-tv"></i> Electronics</a>
+        <a href="#grocery"><i class="fa fa-box"></i> Grocery</a>
+        <a href="#appliances"><i class="fa fa-gift"></i> Appliances</a>
+        <a href="#fashion"><i class="fa fa-gem"></i> Fashion</a>
+      </div>
+    </div>
+
+    <!-- Login Dropdown -->
+    <div class="dropdown">
+      <button class="btn btn-light dropdown-toggle" type="button" id="loginDropdown"
+              data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-user"></i> Login
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+        <li class="dropdown-header"><a href="C:\Users\kotav\OneDrive\Desktop\pp\Login\Login.html ">Sign Up</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-user-circle"></i> My Profile</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-gem"></i> Flipkart</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-box"></i> Orders</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-gift"></i> Rewards</a></li>
+        <li><a class="dropdown-item" href="#"><i class="fa fa-credit-card"></i> Gift Cards</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Bootstrap Carousel -->
+  <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="#laptops">
+        <img src="C:\Users\kotav\OneDrive\Desktop\pp\images\45348602ad4b2259.webp" class="d-block w-100" alt="Samsung" width="100" height="200" j>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="#mobiles">
+        <img src= "C:\Users\kotav\OneDrive\Desktop\pp\images\076c4f2ee87225d7.webp"  class="d-block w-100" alt="Electronics" width="100" height="200"  justify-content="center">
+      </a>
+    </div>
+      <div class="carousel-item">
+        <a href="#grocery">
+        <img src="C:\Users\kotav\OneDrive\Desktop\pp\images\b5e1c1f078a81563.webp" class="d-block w-100" alt="Laptop" width="100" height="200"  justify-content="center">
+      </a>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  
+<!-- ✅ Category Bar -->
+<div class="category-bar" id="categoryBar">
+  <button data-target="mobiles">
+    <img src="C:\Users\kotav\Downloads\gettyimages-1301455711-612x612.jpg" alt="Mobiles">
+    <span>Mobiles</span>
+  </button>
+  <button data-target="laptops">
+    <img src="C:\Users\kotav\Downloads\hp-essential-15s-fr4000tu-laptop-500x500.webp" alt="Laptops">
+    <span>Laptops</span>
+  </button>
+  <button data-target="electronics">
+    <img src="C:\Users\kotav\Downloads\brightly-glowing-ai-chip-on-600nw-2487158743.webp" alt="Electronics">
+    <span>Electronics</span>
+  </button>
+  <button data-target="appliances">
+    <img src="C:\Users\kotav\Downloads\50473-8-home-appliance-download-hd-png.png" alt="Appliances">
+    <span>Appliances</span>
+  </button>
+  <button data-target="fashion">
+    <img src="C:\Users\kotav\Downloads\OTTOXDQ_078copyyy_500x.webp" alt="Fashion">
+    <span>Fashion</span>
+  </button>
+  <button data-target="shoes">
+    <img src="C:\Users\kotav\Downloads\0573432b-a1e5-4d48-b247-0ec2fafc018e1736254066450-HRX-by-Hrithik-Roshan-Men-Z-ICON-Running-Shoes-1441736254066-15.webp" alt="Shoes">
+    <span>Shoes</span>
+  </button>
+   <button data-target="farnichar">
+    <img src="C:\Users\kotav\Downloads\elegant-armchair-coffee-table-set-modern-comfort-style_191095-80516.jpg" alt="Shoes">
+    <span>Farnichar's</span>
+  </button>
+  <button data-target="grocery">
+    <img src="C:\Users\kotav\Downloads\png-grocery-shopping-cart-against-transparent-background-retail-shopping-e-commerce-projects-png-grocery-shopping-cart-381687243.webp" alt="Grocery">
+    <span>Grocery</span>
+  </button>
+</div>
+
+
+
+
+
+<!-- ✅ Products  1 Section -->
+
+<div class="container">
+  <h4 class="mb-3">Best of Electronics</h4>
+  <section id="electronics" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6 ">
+        <div class="product-card h-100">
+          <span class="discount">10% OFF</span>
+          <img  src="C:\Users\kotav\Downloads\61NU5kcetlL.jpg" alt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>MSI Gaming Laptop </h3>
+          <p class="rating">(75,267)</p>
+          <p class="price">₹89,900 <span class="old">₹1,40,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\laptop-alienware-aa16250nt-gallery-1.avif" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>Dell Gaming Laptop</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹89,900 <span class="old">₹99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">8% OFF</span>
+          <img src="C:\Users\kotav\Downloads\laptop-alienware-aa16250nt-gallery-4.avif" alt="Alienware" class="img-fluid">
+          <h3>Alienware Gaming Laptop</h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹1,29,900 <span class="old">₹1,89,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">15% OFF</span>
+          <img src="C:\Users\kotav\Downloads\laptop-dell-db14250nt-fpr-laptop-bl-gallery-4.avif" alt="MacBook Pro" class="img-fluid">
+          <h3>Dell Laptop  14-inch</h3>
+          <p class="rating">(400,500)</p>
+          <p class="price">₹90,900 <span class="old">₹1,10,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\laptop-dell-da16250nt-sl-gallery-5.avif" alt="HP Pavilion" class="img-fluid">
+          <h3>Dell Laptop  13.3”</h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹65,900 <span class="old">₹84,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\mbp14.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>MAC BOOK M4 chip Laoptop </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,90,900 <span class="old">₹2,54,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    
+      </div> <!-- ✅ row end -->
+  </section>
+
+ 
+   <!-- ✅ Products  2 Section -->
+<div class="container">
+  <h4 class="mb-3">Laptops </h4>
+  <section id="laptops" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">10% OFF</span>
+          <img src="C:\Users\kotav\Downloads\3kpj6w68xpjbk0s5x0vlii53h8zph7362628.webp" alt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>LOQ Lenovo Laptop  (1TB)</h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">₹85,900 <span class="old">₹1,02,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\bg6a4pa-1_t1746758461.avif" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>HP Student Laptop </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹89,900 <span class="old">₹99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">8% OFF</span>
+          <img src="C:\Users\kotav\Downloads\frame-1_3_un.34lsi.00j.webp" alt="Alienware" class="img-fluid">
+          <h3>Alienware Gaming Laptop GLG</h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹1,29,900 <span class="old">₹2,49,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">15% OFF</span>
+          <img src="C:\Users\kotav\Downloads\comgzh2uzn4um7bh_0_nx.j2bsi.001.webp" alt="MacBook Pro" class="img-fluid">
+          <h3>ASUS AI Laptop  14 inch</h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹89,900 <span class="old">₹96,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\nitro_base_image_i5_un.366si.006.webp" alt="HP Pavilion" class="img-fluid">
+          <h3>ACER NITRO Gaming Laptop (512GB)SSD </h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹1,09,900 <span class="old">₹1,39,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\qszuc2alausuka7arolwms0o4og4e0518751.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Lenovo YOGA Book </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹99,900 <span class="old">₹1,04,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 7 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\bck35fhess1td0jtxhbqx1a2s9ofzk318843.webp" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>LOQ Lenovo Laptop </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹89,900 <span class="old">₹99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 8 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\dc761sty0w2b8ldb7fxnyqagnk0x31275942.avif" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>Dell Gaming Laptop </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹99,900 <span class="old">₹1,09,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 9 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\neo-16-ai_slim_-ultra7-frame01_nh.qx9si.001.webp" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>ACER NITRO  Gaming Laptop</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹89,900 <span class="old">₹99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 10 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\81+BYKUFf+L._AC_SX466_.jpg" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>ASER  Gaming Laptop</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹99,900 <span class="old">₹1,20,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!--poduct 11-->
+     <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\81BiYUV3jVL._AC_SX466_.jpg" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>ASUS  Gaming Laptop</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹1,89,900 <span class="old">₹2,99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 12 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\71KML4h3PhL._AC_SX466_.jpg" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>MSI  Laptop</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹89,900 <span class="old">₹99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div> <!-- ✅ row end -->
+  </section>
+<!-- ✅ Products  3 Section -->
+ <!--  Applicance -->
+<!-- ✅ Products Section -->
+<div class="container">
+  <h4 class="mb-3">Applicance</h4>
+  <section id="appliances" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6 ">
+        <div class="product-card h-100">
+          <span class="discount">10% OFF</span>
+          <img src="C:\Users\kotav\Downloads\BR2660IFDRSS_BER45_Brama_Logo_1080x.jpg" alt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>Refrigrateor </h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">₹1,59,900 <span class="old">₹1,64,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">12% OFF</span>
+          <img src="C:\Users\kotav\Downloads\Microwave Images – B.png" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>Micro Owen</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹89,900 <span class="old">₹99,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+               <img src="C:\Users\kotav\Downloads\Ceiling Fan PNG Imag.png" alt="Alienware" class="img-fluid">
+          <h3>FAN </h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹11,900 <span class="old">₹23,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">25% OFF</span>
+          <img src="C:\Users\kotav\Downloads\5-in-1 Indian Mixer .png" alt="MacBook Pro" class="img-fluid">
+          <h3>Mixer </h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹12,900 <span class="old">₹20,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\Bosch VeroCafe 800 S.png" alt="HP Pavilion" class="img-fluid">
+          <h3>Coffice Maker </h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹1,09,900 <span class="old">₹1,39,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 6 -->
+         <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\Kitchen stove Images.png" alt="HP Pavilion" class="img-fluid">
+          <h3>4 pic Stave</h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹39,900 <span class="old">₹58,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+
+      </div> <!-- ✅ row end -->
+  </section>
+</div>
+   <!-- ✅ Products  4 Section -->
+<div class="container">
+  <h4 class="mb-3">Mens Fashion </h4>
+  <section id="fashion" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+          <img src="C:\Users\kotav\Downloads\0038.webp" alt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>Blue Cotton shart</h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">900 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">16% OFF</span>
+          <img src="C:\Users\kotav\Downloads\noyz6_512.webp" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>RED cotton shart </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹1,100 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+          <img src="C:\Users\kotav\Downloads\stormy-grey-elite-5.webp" alt="Alienware" class="img-fluid">
+          <h3>Dark Brwwon Contton shart </h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹900 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">% 8OFF</span>
+          <img src="C:\Users\kotav\Downloads\ash-grey-1_368fcc93-1fac-412c-989c-e6b35dc89527.webp" alt="MacBook Pro" class="img-fluid">
+          <h3>Light Browwn silke </h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹1,200 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">6% OFF</span>
+          <img src="C:\Users\kotav\Downloads\hsxc9_512.webp" alt="HP Pavilion" class="img-fluid">
+          <h3>Whight Shart”</h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹1,300 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">15% OFF</span>
+        <img src="C:\Users\kotav\Downloads\1_9194810e-6378-4d29-b2cb-18ddf76388f7.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>RED Squre Shape shart</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,500 <span class="old">₹2,000</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!--product 7-->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\levis_cotton_navy_check_shirt_for_men_173331589532874_0606_1.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3> DARK Blue line shart</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,300 <span class="old">₹2,100</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 8 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">6% OFF</span>
+        <img src="C:\Users\kotav\Downloads\BFwPq29Tm_-MSHCS1BC137NAVY-BLUE-_1.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Light Blue shart </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,500 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 9 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\Downloads\Q6OXsPY8F-8905566097841_1.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Whight Box's Shart</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,900 <span class="old">₹2,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 10 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+        <img src="C:\Users\kotav\Downloads\32488-1_LIVE_OL1184-1_1_9860641c-7091-46f5-8fe1-9b5c5ed35045_350x.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Maruun Shart</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,900 <span class="old">₹2,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+      <!-- Product 11 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">70% OFF</span>
+        <img src="C:\Users\kotav\Downloads\wrangler-mens-shirts-500x500.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Green cotton Shart</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,900 <span class="old">₹3,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 12 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\Downloads\casual-mens-shirts-500x500.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Black & whight Box's Shart</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,900 <span class="old">₹2,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      </div>
+    </div> <!-- ✅ row end -->
+  </section>
+<!-- ✅ Products  5  Section -->
+ <!--  Fashion  -->
+<!-- ✅ Products Section -->
+<div class="container">
+  <h4 class="mb-3">Shoes</h4>
+  <section id="shoes" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6 ">
+        <div class="product-card h-100">
+          <span class="discount">45% OFF</span>
+          <img src="C:\Users\kotav\Downloads\photo-1664551585759-8a6259161936.jpeg" alt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>Nike Shoes</h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">₹2,500 <span class="old">₹5,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">25% OFF</span>
+          <img src="C:\Users\kotav\Downloads\www.activaboualaa.comFH23213_2.webp" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>Red Tap </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹2,900 <span class="old">₹3,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+          <img src="C:\Users\kotav\Downloads\photo-1560769629-975ec94e6a86.jpeg" alt="Alienware" class="img-fluid">
+          <h3>Campose Fashion Shoes </h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹2,900 <span class="old">₹4,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+          <img src="C:\Users\kotav\Downloads\istockphoto-1495664030-612x612.jpg" alt="MacBook Pro" class="img-fluid">
+          <h3>RED TAP fashion 
+          Shoes 
+          </h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹2,900 <span class="old">₹4,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\eecdfb112097387.600ff1cabd8f8.jpg" alt="HP Pavilion" class="img-fluid">
+          <h3>Black nike Shoes </h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹3,900 <span class="old">₹5,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\d91bf83c-9250-418d-9b0c-4ed30986eb5d.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Jappane's technowlogy Shoes</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹4,900 <span class="old">₹6,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+     <!-- Product 7 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\Downloads\d7a453219093b758f34795fecb2e8339.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>Sport's & Styleish Shoes </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹5,900 <span class="old">₹8,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 8 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\1_998e8837-b4e3-4121-a7bb-6cecdf985dbb_grande.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Live's Shoes</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹4,000 <span class="old">₹6,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 9 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">30% OFF</span>
+        <img src="C:\Users\kotav\Downloads\370673_0.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>Jappanis Technology Shoes </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹5,000 <span class="old">₹7,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 10 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\BIG3_5.0_QUICK_PRO_-10_REVERSE_2.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>NIKE Fashion&Sport Style Shoes</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹79,900 <span class="old">₹94,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 11 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\be12b9f535465eaf94c3e6e824345d23921cc8d6c1148371b4bc84a49e69a68ab38624078f777ed3.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Chines Style Shoes </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹4,900 <span class="old">₹7,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 12 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+        <img src="C:\Users\kotav\Downloads\1_5bb63b8d-64fa-45ed-ae9e-9a9bcd2d0a52.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>INDEN's Styles Shoes </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹2,900 <span class="old">₹5,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      </div> <!-- ✅ row end -->
+  </section>
+</div>
+<!-- ✅ Products  6  Section -->
+ <!--  shows   -->
+<!-- ✅ Products Section -->
+<div class="container">
+  <h4 class="mb-3">Farnichar's</h4>
+  <section id="farnichar" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6 ">
+        <div class="product-card h-100">
+          <span class="discount">30%  OFF</span>
+          <img src="C:\Users\kotav\Downloads\istockphoto-1031444360-612x612.jpg"lt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>FURNY Premium Orion 5 Seater Fabric 3+1+1 Sofa </h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">₹23,232 <span class="old">₹46,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">48% OFF</span>
+          <img src="C:\Users\kotav\Downloads\910ZS8RtPNL._UF894,1000_QL80_.jpg" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>FURNY Premium Orion 5 Seater Fabric 3+1+1</h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹23,900 <span class="old">₹45,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">27% OFF</span>
+          <img src="C:\Users\kotav\Downloads\91XDOj8po0L._UF894,1000_QL80_.jpg" alt="Alienware" class="img-fluid">
+          <h3>Torque - Louis Luxurious Sofa 3 Seater Leatherette (Brown)</h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹24,960 <span class="old">₹45,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">15% OFF</span>
+          <img src="C:\Users\kotav\Downloads\jpg.jpeg" alt="MacBook Pro" class="img-fluid">
+          <h3>Torque - Louis Luxurious 3 Seater Sofa for Living Room (Green)</h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹29,900 <span class="old">₹34,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\Downloads\713q-Z0EzUL._UF894,1000_QL80_.jpg" alt="HP Pavilion" class="img-fluid">
+          <h3>Solid Sheesham Wood Dining Table 4 Seater Dining</h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹1,09,900 <span class="old">₹1,39,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\81Gi1pxjV9L._UF894,1000_QL80_.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>Wooden 3 Seater Sofa Bed Couch for Bedroom Hall t</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹26,999 <span class="old">₹34,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+     <!-- Product 7 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\818MvrXkirL._UF894,1000_QL80_.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>Home Centre Lexus Dresser Mirror with Drawer - Brown</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹13,900 <span class="old">₹23,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 8 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">68% OFF</span>
+        <img src="C:\Users\kotav\Downloads\2592-woodford-vintage-leather-chesterfield.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>AMATA Marino Solid Wood 3 Seater Brown Suede</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹15,900 <span class="old">₹34,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 9 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">58% OFF</span>
+        <img src="C:\Users\kotav\Downloads\61xXIMZxNbL.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>Home Centre Lexus Dresser Mirror with Drawer</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹19,900 <span class="old">₹34,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 10 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\Downloads\ai-generated-8709665_640.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>MATTERHORN Engineered Wood Bed Queen Size</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹9,900 <span class="old">₹14,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 11 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">70% OFF</span>
+        <img src="C:\Users\kotav\Downloads\bedroom-5664221_1280.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3> Vault Engineered Wood Bed with Storage, Bedroom Bed</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹19,900 <span class="old">₹44,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 12 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\Downloads\w23-lamps-and-lightings-night-lamps-revised-buying-guide.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Lamp, Table Lamp, Incandescent Night Lamp </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">900 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+       </div>
+      </div> <!-- ✅ row end -->
+  </section>
+</div>
+   <!-- ✅ Products   5Section -->
+<div class="container">
+  <h4 class="mb-3">Mobiles</h4>
+  <section id="mobiles" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6 ">
+        <div class="product-card h-100">
+          <span class="discount">30%  OFF</span>
+          <img src="C:\Users\kotav\Downloads\SamsungA165G-LightGreen.webp"lt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>Samsong 5G phone </h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">₹59,900, <span class="old">₹84,900.</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">25% OFF</span>
+          <img src="C:\Users\kotav\Downloads\sm.jpg" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>SAMSONG Black chip  </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹1,20,896 <span class="old">₹1,56,000</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">65% OFF</span>
+          <img src="C:\Users\kotav\Downloads\42795918_o_a1.webp" alt="Alienware" class="img-fluid">
+          <h3>Samsung Flip Phone</h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹2,00,900 <span class="old">₹2,65,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">15% OFF</span>
+          <img src="C:\Users\kotav\Downloads\iPhone_15_Pink_Pure_Back_iPhone_15_Pink_Pure_Front_2up_Screen__WWEN_cfd96ace-df87-4ab3-a96a-e8e9b13bb7b9.webp" alt="MacBook Pro" class="img-fluid">
+          <h3>I Phone 16 </h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹1,02,900 <span class="old">₹1,95,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">30% OFF</span>
+          <img src="C:\Users\kotav\Downloads\apple-iphone-16-1.jpg" alt="HP Pavilion" class="img-fluid">
+          <h3>I Phone 17 Pro MAX (256GB)</h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹1,94,900 <span class="old">₹2,39,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">24% OFF</span>
+        <img src="C:\Users\kotav\Downloads\images.jpeg"  alt="HP Ryzen" class="img-fluid">
+          <h3>I Phone 16 Pro MAX (512GB)</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹1,02,900 <span class="old">₹1,90,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+     <!-- Product 7 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">15% OFF</span>
+        <img src="C:\Users\kotav\Downloads\Untitled-design-57.png"  alt="HP Ryzen" class="img-fluid">
+          <h3> Infinix HOT 5G</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹10,900 <span class="old">₹16,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 8 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">8% OFF</span>
+        <img src="C:\Users\kotav\Downloads\01750665955.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>Infinix HOT 5G pro</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹15,900 <span class="old">₹20,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 9 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">40% OFF</span>
+        <img src="C:\Users\kotav\Downloads\Xiaomi-Redmi-Note-13-Pro-1.jpg"  alt="HP Ryzen" class="img-fluid">
+          <h3>REAL MI 50MP</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹23,900 <span class="old">₹34,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 10 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\redmi-12-5g-6128gb-refurbished-triveni-world-2.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>RED MI 12 5G </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹19,900 <span class="old">₹34,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 11 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\Downloads\vivov40e-MediatekDimensity.webp"  alt="HP Ryzen" class="img-fluid">
+          <h3>VIVO </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹40,900 <span class="old">₹50,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 12 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\Downloads\untitled-design-1-png.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>ViVo new vershion </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹45,900 <span class="old">₹64,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+       </div>
+      </div> <!-- ✅ row end -->
+  </section>
+</div>
+  <!-- ✅ Products   5Section -->
+<div class="container">
+  <h4 class="mb-3">Grocery</h4>
+  <section id="grocery" class="mb-5">
+    <div class="row g-3 text-center">
+    
+      <!-- Product 1 -->
+       <div class="products-grid">
+      <div class="col-md-2 col-6 ">
+        <div class="product-card h-100">
+          <span class="discount">10%  OFF</span>
+          <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-21.png"lt="iPhone 15 Pro Max" class="img-fluid">
+          <h3>Anardana (Dried Pomegranate Seeds)</h3>
+          <p class="rating">(45,267)</p>
+          <p class="price">₹9,900 <span class="old">₹14,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">52% OFF</span>
+          <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-23.png" alt="Dell Gaming Laptop" class="img-fluid">
+          <h3>Lemon jusie powerd Vitamin C AND DHA </h3>
+          <p class="rating">(12,450)</p>
+          <p class="price">₹900 <span class="old">₹1,900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">42% OFF</span>
+          <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-25.png" alt="Alienware" class="img-fluid">
+          <h3>Happilo Premium Californian Roasted & Salted Pistachios (Pista) </h3>
+          <p class="rating">(5,678)</p>
+          <p class="price">₹670 <span class="old">₹1,100</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+          <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-26.png" alt="MacBook Pro" class="img-fluid">
+          <h3>B Natural Orange Juice, Fiber, Enriched Vit C & E, 100% Indian Fruit, 0% Concentrate.</h3>
+          <p class="rating">(20,500)</p>
+          <p class="price">₹250 <span class="old">₹500</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+          <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumbnail-1.jpg" alt="HP Pavilion" class="img-fluid">
+          <h3>Kellogg's Corn Flakes Original, Power of Energy, Protein, Iron, Calcium & Vitamins (251 g)</h3>
+          <p class="rating">(18,340)</p>
+          <p class="price">₹200 <span class="old">₹300</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">5% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-30.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>Oreang Fruit juice </h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹210 <span class="old">₹250</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+     <!-- Product 7 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-18.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>Classic Apples  by Flipkart Grocery</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹240 <span class="old">₹500</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 8 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">50% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-17.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>English Oven Freshly Baked Sliced Premium White Bread</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">50 <span class="old">₹100</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 9 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">40% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-13.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>Fresho Avocado - Imported, Medium 7 pc</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹550 <span class="old">₹900</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 10 -->
+      <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">18% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-8.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>
+            fresho! Cherry, 400 g. 
+            fresho! Cherry, 400 g</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹340 <span class="old">₹500</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 11 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">20% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-3.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>Amul Diced Cheese Blend</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹250 <span class="old">₹500</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Product 12 -->
+       <div class="col-md-2 col-6">
+        <div class="product-card h-100">
+          <span class="discount">60% OFF</span>
+        <img src="C:\Users\kotav\OneDrive\Desktop\Thander\organic-1.0.0\images\product-thumb-6.png"  alt="HP Ryzen" class="img-fluid">
+          <h3>Fresho Tilapia Fish - Curry Cut 250 g</h3>
+          <p class="rating">(9,870)</p>
+          <p class="price">₹200 <span class="old">₹600</span></p>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+       </div>
+      </div> <!-- ✅ row end -->
+  </section>
+</div>
+
+
+
+
+
+
+  <!-- ✅ Cart Modal -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <h3>Total: ₹<span id="cart-total">0</span></h3>
+      <button id="buy-btn" class="btn buy-btn">Buy Now</button>
+      <button id="close-cart" class="btn close-btn">Close</button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--- packeg -->
+ <!--- packeg -->
+</div>
+<section class="py-5">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card feature-card text-center">
+          <img src="C:\Users\kotav\Downloads\467011.jpg" class="feature-img" alt="Genuine Products" justify-content="center">
+          <div class="card-body p-0 mt-2">
+            <h6>Genuine Products</h6>
+            <p class="card-text small">100% original & trusted brands.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card feature-card text-center">
+          <img src="C:\Users\kotav\Downloads\Gemini_Generated_Image_ojsazqojsazqojsa.png" class="feature-img" alt="Easy Returns" justify-content="center">
+          <div class="card-body p-0 mt-2">
+            <h6>Easy Returns</h6>
+            <p class="card-text small">Hassle-free 7 days return policy.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card feature-card text-center">
+          <img src="C:\Users\kotav\Downloads\1729149797681227.jpg" class="feature-img" alt="Secure Payments" justify-content="center">
+          <div class="card-body p-0 mt-2">
+            <h6>Secure Payments</h6>
+            <p class="card-text small">Pay safely with 100% encryption.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card feature-card text-center">
+          <img src="C:\Users\kotav\Downloads\Flipkart-offers.png" class="feature-img" alt="Top Offers" justify-content="center">
+          <div class="card-body p-0 mt-2">
+            <h6>Top Offers</h6>
+            <p class="card-text small">Exclusive discounts.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card feature-card text-center">
+          <img src="C:\Users\kotav\Downloads\Main-banner_Flipkarts-Help-Center_800x450.png" class="feature-img" alt="24/7 Support">
+          <div class="card-body p-0 mt-2">
+            <h6>24/7 Support</h6>
+            <p class="card-text small">Dedicated customer assistance.</p>
+          </div>
+        </div>
+      </section>
+</div>
+</div>
+
+
+
+
+<footer class="py-5 bg-dark text-light">
+  <div class="container-lg">
+    <div class="row">
+
+      <!-- About Section -->
+      <div class="col-md-2 col-sm-6">
+        <div class="footer-menu">
+          <h6 class="widget-title text-uppercase">About</h6>
+          <ul class="menu-list list-unstyled small">
+            <li><a href="#" class="text-light nav-link p-0">Contact Us</a></li>
+            <li><a href="#" class="text-light nav-link p-0">About Us</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Careers</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Flipkart Stories</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Press</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Help Section -->
+      <div class="col-md-2 col-sm-6">
+        <div class="footer-menu">
+          <h6 class="widget-title text-uppercase">Help</h6>
+          <ul class="menu-list list-unstyled small">
+            <li><a href="#" class="text-light nav-link p-0">Payments</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Shipping</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Cancellation & Returns</a></li>
+            <li><a href="#" class="text-light nav-link p-0">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Policy Section -->
+      <div class="col-md-2 col-sm-6">
+        <div class="footer-menu">
+          <h6 class="widget-title text-uppercase">Consumer Policy</h6>
+          <ul class="menu-list list-unstyled small">
+            <li><a href="#" class="text-light nav-link p-0">Return Policy</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Terms of Use</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Security</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Privacy</a></li>
+            <li><a href="#" class="text-light nav-link p-0">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      
+
+      <!-- Social Section -->
+      <div class="col-md-2 col-sm-6">
+        <div class="footer-menu">
+          <h6 class="widget-title text-uppercase">Social</h6>
+          <ul class="menu-list list-unstyled d-flex gap-2">
+            
+            <li><a href="mailto:kotavenkat2004@gmail.com" class="btn btn-outline-light btn-sm"><img src="C:\Users\kotav\Downloads\Gmail-app-icon.jpg" width="70" height="50"><use xlink:href="#twitter"></use></img></a></li>
+            <li><a href="https://www.linkedin.com/in/venkat2026/" class="btn btn-outline-light btn-sm"><img src=" C:\Users\kotav\Downloads\972171.png" width="70" height="50"><use xlink:href="#twitter"></use></img></a></li>
+           <li><a href="mailto:kotavenkat2004@gmail.com" class="btn btn-outline-light btn-sm"><img src="C:\Users\kotav\Downloads\Github-Logo-PNG.png" width="70" height="50"><use xlink:href="#twitter"></use></img></a></li>
+            <li><a href="kotavenkat2004@gmail.com" class="btn btn-outline-light btn-sm"><img src="C:\Users\kotav\Downloads\png-clipart-phone-contact-icon-logo-iphone-computer-icons-telephone-call-phone-icon-electronics-text.png" width="70" height="50"><use xlink:href="#twitter"></use></img></a></li>
+        </div>
+      </div>
+
+      <!-- Address Section -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="footer-menu">
+          <h6 class="widget-title text-uppercase">Mail Us</h6>
+          <p class="small">Flipkart Internet Private Limited,<br> Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br> Outer Ring Road, Devarabeesanahalli Village,<br> Bengaluru, 560103, Karnataka, India</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="footer-bottom" class="bg-black text-light py-3">
+  <div class="container-lg">
+    <div class="row">
+      <div class="col-md-6 copyright small">
+        <p>© 2024 Flipcord. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 credit-link text-start text-md-end small">
+        <p>Inspired by Flipkart | Template customized by Venkat</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
+     
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+ 
